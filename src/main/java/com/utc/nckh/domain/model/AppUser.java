@@ -1,13 +1,10 @@
-package com.utc.nckh.auth.model;
+package com.utc.nckh.domain.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Entity
 @Data
@@ -21,6 +18,9 @@ public class AppUser {
     private String password;
     @ManyToOne
     @JoinColumn(name = "role_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonBackReference
     private AppUserRole role;
     private String imageName;
 

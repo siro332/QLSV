@@ -1,7 +1,7 @@
-package com.utc.nckh.auth.service.interfaces;
+package com.utc.nckh.domain.service.interfaces;
 
-import com.utc.nckh.auth.model.AppUser;
-import com.utc.nckh.auth.model.AppUserRole;
+import com.utc.nckh.domain.model.AppUser;
+import com.utc.nckh.domain.model.AppUserRole;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package com.utc.nckh.auth.model;
+package com.utc.nckh.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,5 +20,8 @@ public class AppUserRole {
     private String code;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
-    Collection<AppUser> appUsers = new ArrayList<>();
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonManagedReference
+    private Collection<AppUser> appUsers = new ArrayList<>();
 }
