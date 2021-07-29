@@ -28,5 +28,15 @@ public class Student {
     private ClassOfFaculty classOfFaculty;
     @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     @JsonManagedReference
-    Set<Parent> parents = new HashSet<>();
+    private  Set<Parent> parents;
+
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<General> generals;
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Evaluation> evaluations;
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<StudyTime> studyTimes;
 }
