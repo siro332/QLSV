@@ -1,15 +1,14 @@
-package com.utc.nckh.domain.model;
+package com.utc.nckh.domain.model.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExamSchedule {
+public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,10 +16,7 @@ public class ExamSchedule {
     @JoinColumn(name = "studyTime_id")
     @PrimaryKeyJoinColumn
     private StudyTime studyTime;
-    private Date date;
-    private String shift;
-    private String type;
-    private String number;
-    private String  room;
-    private String note;
+    private Double markProcess;
+    private Double markExam;
+    private String evaluation;
 }

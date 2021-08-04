@@ -1,7 +1,7 @@
 package com.utc.nckh.domain.service.imp;
 
-import com.utc.nckh.domain.model.AppUser;
-import com.utc.nckh.domain.model.AppUserRole;
+import com.utc.nckh.domain.model.entities.AppUser;
+import com.utc.nckh.domain.model.entities.AppUserRole;
 import com.utc.nckh.domain.repo.AppUserRepo;
 import com.utc.nckh.domain.repo.AppUserRoleRepo;
 import com.utc.nckh.domain.service.interfaces.AppUserService;

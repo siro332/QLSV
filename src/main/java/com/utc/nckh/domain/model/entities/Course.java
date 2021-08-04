@@ -1,4 +1,4 @@
-package com.utc.nckh.domain.model;
+package com.utc.nckh.domain.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -11,16 +11,17 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseClass {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private Long credits;
     @ManyToOne
-    @JoinColumn(name = "studyTime_id")
+    @JoinColumn(name = "semester_id")
     @JsonBackReference
-    private StudyTime studyTime;
-    @OneToMany(mappedBy = "courseClass",cascade = CascadeType.ALL)
+    private Semester semester;
+    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<Stage> stages;
+    private Set<StudyTime> studyTimes;
 }

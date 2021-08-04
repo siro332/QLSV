@@ -1,4 +1,4 @@
-package com.utc.nckh.domain.model;
+package com.utc.nckh.domain.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
@@ -9,15 +9,14 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Lesson {
+public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer days;
-    private String shift;
-    private String location;
+    private String firstName;
+    private String lastName;
     @ManyToOne
-    @JoinColumn(name = "stage_id")
+    @JoinColumn(name = "student_id")
     @JsonBackReference
-    private Stage stage;
+    private Student student;
 }

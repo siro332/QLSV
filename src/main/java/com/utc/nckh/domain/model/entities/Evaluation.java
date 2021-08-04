@@ -1,30 +1,40 @@
-package com.utc.nckh.domain.model;
+package com.utc.nckh.domain.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class General {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Double trainingPoint;
-    private Long tuition;
-    private Long scholarship;
-    private String classification;
-
+public class Evaluation {
+    @EmbeddedId
+    private EvaluationKey id;
     @ManyToOne
+    @MapsId("studentId")
     @JoinColumn(name = "student_id")
     @JsonBackReference
     private Student student;
+
     @ManyToOne
+    @MapsId("semesterId")
     @JoinColumn(name = "semester_id")
     @JsonBackReference
     private Semester semester;
 
+    private String content;
+
+
+}
+@Embeddable
+class EvaluationKey implements Serializable {
+
+    @Column(name = "student_id")
+    private Long studentId;
+
+    @Column(name = "semester_id")
+    private Long semesterId;
 }

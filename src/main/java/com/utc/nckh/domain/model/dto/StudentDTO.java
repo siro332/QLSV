@@ -1,18 +1,15 @@
-package com.utc.nckh.domain.model;
+package com.utc.nckh.domain.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class StudentDTO {
     private Long id;
     private String firstName;
     private String lastName;
@@ -21,9 +18,6 @@ public class Teacher {
     private String pob;
     private boolean isMale;
     private int yearOfAdmission;
-    @ManyToOne
-    @JoinColumn(name = "class_id")
-    @JsonBackReference
-    private ClassOfFaculty classOfFaculty;
+    private ClassOfFacultyDTO classOfFaculty;
 
 }
